@@ -59,6 +59,9 @@ h2{
     font-size: 26px;
     color: #333333;
     letter-spacing: 00.018em;
+    margin-left: 14px;
+    margin-top: 30px;
+    margin-bottom: 5px;
 }
 h3{
     font-family: "Roboto-Bold";
@@ -88,12 +91,13 @@ h4{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: calc(100% -184px);
+    height: calc(100%-184px);
     margin-top: 92px;
+    margin-bottom:92px;
 }
 .suggestion{
     display: flex;
-    background-color: aqua;
+    
 }
 .choice{
     width: 172px;
@@ -105,9 +109,13 @@ h4{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    min-width: 172px;
-    flex-shrink: 0px;
+    flex-shrink: 0;
+    padding-left: 14px;
 }
+.choice:hover{
+    cursor: pointer;
+}
+
 /*------------------------------*/
 /*-----------BOTTOM----------------*/
 .bottom{
