@@ -25,7 +25,9 @@
 body{
     background-color: #E5E5E5;
 }
-
+::-webkit-scrollbar {
+    width: 0px; 
+}
 /*-----------TOP----------------*/
 .topo{
     width: 100%;
@@ -97,7 +99,7 @@ h4{
 }
 .suggestion{
     display: flex;
-    
+    overflow-x: scroll; 
 }
 .choice{
     width: 172px;
