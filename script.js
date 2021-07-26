@@ -82,19 +82,23 @@ function finalizar(){
                 let selected = document.querySelector(".bottom .button");
                 selected.classList.add("verde");
                 selected.innerHTML = "Fechar pedido";
-                habilitado();
+                
             }
         }
     }
     
 }
-
+function dados(){
+    nome = prompt("Digite seu nome:");
+    endereco = prompt("Digite seu endereço:");
+    habilitado();
+}
 
 
 function habilitado(){
     valor = valor.toFixed(2);
     let link = "https://wa.me/5515991379663?text=";
-    let text = "Olá, gostaria de fazer o pedido:\n - Prato: "+ prato + "\n - Bebida: "+ bebida +"\n - Sobremesa: " + sobremesa + "\n - Total: R$ "+valor;
+    let text = "Olá, gostaria de fazer o pedido:\n - Prato: "+ prato + "\n - Bebida: "+ bebida +"\n - Sobremesa: " + sobremesa + "\n - Total: R$ "+valor+ "\n Nome: " + nome +"\n Endereço: "+ endereco;
     let textoPronto = encodeURI(text);
     let menssagem = link + textoPronto;
     let ativar = document.querySelector("a");
