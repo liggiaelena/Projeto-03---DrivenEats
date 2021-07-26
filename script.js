@@ -1,7 +1,9 @@
 let prato;
 let bebida;
 let sobremesa;
-let valor;
+let valor = 0;
+let nome;
+let endereco;
 
 function selectPlate(selected){
     let verificar = document.querySelector( ".plate .border");
@@ -11,12 +13,18 @@ function selectPlate(selected){
         adicionar.classList.add("disappear") ;
     }
    selected.classList.add("border");
-
    let icone = selected.querySelector(".disappear");
    icone.classList.remove("disappear");   
+   
    let nome = selected.querySelector("h3");
    prato = nome.innerHTML;
-   alert(prato);
+
+   let preco = selected.querySelector("span");
+   let string = preco.innerHTML;
+   let numero = parseFloat(string.replace(",","."));
+   
+   valor = valor + numero;
+
    finalizar();
 }
 
@@ -31,9 +39,16 @@ function selectDrink(selected){
    selected.classList.add("border");
    let icone = selected.querySelector(".disappear");
    icone.classList.remove("disappear");   
+   
    let nome = selected.querySelector("h3");
    bebida = nome.innerHTML;
-   alert(bebida);
+
+   let preco = selected.querySelector("span");
+   let string = preco.innerHTML;
+   let numero = parseFloat(string.replace(",","."));
+   
+   valor = valor + numero;
+
     finalizar();
 }
 
@@ -50,7 +65,12 @@ function selectDessert(selected){
 
    let nome = selected.querySelector("h3");
    sobremesa = nome.innerHTML;
-   alert(sobremesa);
+
+   let preco = selected.querySelector("span");
+   let string = preco.innerHTML;
+   let numero = parseFloat(string.replace(",","."));
+  
+   valor = valor + numero;
 
    finalizar();
 }
@@ -62,24 +82,22 @@ function finalizar(){
                 let selected = document.querySelector(".bottom .button");
                 selected.classList.add("verde");
                 selected.innerHTML = "Fechar pedido";
+                habilitado();
             }
         }
     }
     
 }
 
-function habilitado(elemento){
-    let link = "https://wa.me/5515991379663?text=";
-   // let text = "Olá, gostaria de fazer o pedido:" + "- Prato:"+ prato + "/n"
-    
-   // - Bebida: Coquinha Gelada
-   // - Sobremesa: Pudim
-   // Total: R$ 27.70;"
-   // let textoPronto = encodeURI();
-    //let texto = "%60%60%60css%20Ol%C3%A1%2C%20gostaria%20de%20fazer%20o%20pedido%3A%20-%20Prato%3A%20" + prato +"%20-%20Bebida%3A%20" + bebida + "%20-%20Sobremesa%3A%20" + sobremesa + "%20Total%3A%20R%24%" + valor + "%20%60%60%60";
-    let menssagem = link + texto;
-    elemento.setAttribute("href", link );
 
+
+function habilitado(){
+    valor = valor.toFixed(2);
+    let link = "https://wa.me/5515991379663?text=";
+    let text = "Olá, gostaria de fazer o pedido:\n - Prato: "+ prato + "\n - Bebida: "+ bebida +"\n - Sobremesa: " + sobremesa + "\n - Total: R$ "+valor;
+    let textoPronto = encodeURI(text);
+    let menssagem = link + textoPronto;
+    let ativar = document.querySelector("a");
+    ativar.setAttribute("href", menssagem );
 }
 
-//https://api.whatsapp.com/send?phone=5515991379663&text=%60%60%60css%20Ol%C3%A1%2C%20gostaria%20de%20fazer%20o%20pedido%3A%20-%20Prato%3A%20Frango%20Yin%20Yang%20-%20Bebida%3A%20Coquinha%20Gelada%20-%20Sobremesa%3A%20Pudim%20Total%3A%20R%24%2027.70%20%60%60%60
