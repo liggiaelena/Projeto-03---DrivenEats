@@ -150,7 +150,7 @@ ion-icon{
     align-items: center;
     background-color: #FFFFFF;
 }
-button{
+.button{
     background-color: #CBCBCB;
     border-radius: 50px;
     color: #FFFFFF;
@@ -162,6 +162,11 @@ button{
     letter-spacing: 0.018em;
     height: 61px;
     width: 364px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .verde{
